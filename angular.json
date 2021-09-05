@@ -55,8 +55,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "none",
-              "namedChunks": true
+              "outputHashing": "none"
             },
             "development": {
               "buildOptimizer": false,
