@@ -1,0 +1,54 @@
+@import "src/app/shared/colors.scss";
+
+::ng-deep.dark-theme{
+  .header-wrapper {
+    background-color: $dmAlternateBg;
+    transition: background-color 0.5s;
+    .title {
+      color: $dmDefaultText;
+    }
+    .sub-title {
+      color: $dmAlternateText;
+    }
+  }
+}
+
+::ng-deep.light-theme{
+  .header-wrapper {
+    background-color: $lmAlternateBg;
+    transition: background-color 0.5s;
+    .title {
+      color: $lmDefaultText;
+    }
+    .sub-title {
+      color: $lmAlternateText;
+    }
+  }
+}
+
+.header-wrapper {
+  width: 100%;
+  padding: 15px;
+  display: inline-block;
+  .header-left{
+    display:inline-block;
+    width:calc(100% - 30px);
+    vertical-align: middle;
+    .title {
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .sub-title {
+      font-size: 14px;
+    }
+  }
+  .toggle-theme{
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    svg{
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,0 +1,224 @@
+@import "src/app/shared/colors";
+
+::ng-deep .dark-theme{
+  .chart-wrapper {
+    background-color: $dmAlternateBg;
+    transition: background-color 0.5s;
+    .chart-header{
+      color: $dmAlternateText;
+    }
+  }
+  .cmh-left,.toggle-control{
+    background: $dmAlternateBg;
+    color:$dmAlternateText;
+  }
+}
+
+::ng-deep .light-theme{
+  .chart-wrapper {
+    background-color: $lmAlternateBg;
+    transition: background-color 0.5s;
+    .chart-header{
+      color: $lmDefaultText;
+    }
+  }
+  .cmh-left,.toggle-control{
+    background: $lmAlternateBg;
+    color: $lmAlternateText;
+  }
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: calc(((100% - 110px) / 3) - 15px);
+  margin-bottom: 15px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  .chart-header {
+    font-size: 14px;
+    padding: 15px 15px 0;
+    .updates{
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+  .chart-container{
+    width:100%;
+    height:calc(100% - 35px);
+  }
+  &:last-child{
+    margin-bottom: 15px;
+    height: calc(((100% - 110px) / 3 - 15px));
+  }
+}
+.tc-chart{
+  background-color: $confirmedTypeLight;
+  transition: background-color 0.5s;
+  .updates{
+    color: $confirmedType;
+  }
+}
+.td-chart{
+  background-color: $deceasedTypeLight;
+  transition: background-color 0.5s;
+  .updates{
+    color: $deceasedType;
+  }
+}
+.nc-chart{
+  background-color: $recoveredTypeLight;
+  transition: background-color 0.5s;
+  .updates{
+    color: $recoveredType;
+  }
+}
+.chart-main{
+  display: block;
+  width: 100%;
+  height: 900px;
+  .chart-main-header {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    .cmh-left {
+      display: inline-block;
+      width: 100%;
+      height: 50px;
+      vertical-align: top;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size:13px;
+      .cmh-subtitle {
+        font-size: 10px;
+      }
+    }
+    .toggle-wrapper {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      .toggle-control {
+        display: inline-block;
+        margin-right: 10px;
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+        padding: 15px 10px 5px 5px;
+        cursor: pointer;
+        transition: background-color 0.5s;
+        span {
+          font-size: 10px;
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+    }
+    .tc-toggle{
+      .toggle-control:hover{
+        background-color: $confirmedTypeLight;
+        color: $confirmedType;
+      }
+    }
+    .td-toggle{
+      .toggle-control:hover{
+        background-color: $deceasedTypeLight;
+        color: $deceasedType;
+      }
+    }
+    .nc-toggle{
+      .toggle-control:hover{
+        background-color: $recoveredTypeLight;
+        color: $recoveredType;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .chart-wrapper {
+    width: 100%;
+    height: calc(((100% - 60px) / 3) - 15px);;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    position: relative;
+    .chart-header {
+      font-size: 14px;
+      padding: 15px 15px 0;
+    }
+    .chart-container{
+      width:100%;
+      height:calc(100% - 35px);
+    }
+    &:last-child{
+      margin-bottom: 0;
+      height: calc(((100% - 75px) / 3));
+    }
+  }
+  .chart-main{
+    display: block;
+    width: 100%;
+    height: 100%;
+    .chart-main-header {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 10px;
+      .cmh-left {
+        transition: background-color 0.5s;
+        display: inline-block;
+        width: auto;
+        height: 50px;
+        vertical-align: top;
+        padding: 10px 15px;
+        float: left;
+        border-radius: 10px;
+        font-weight: 700;
+        margin-bottom:0;
+        .cmh-subtitle {
+          font-size: 10px;
+        }
+      }
+      .toggle-wrapper {
+        display: inline-block;
+        width: auto;
+        text-align: right;
+        float: right;
+        .toggle-control {
+          display: inline-block;
+          margin-left: 10px;
+          margin-right:0;
+          border-radius: 10px;
+          width: 50px;
+          height: 50px;
+          padding: 15px 10px 5px 5px;
+          cursor: pointer;
+          transition: background-color 0.5s;
+          span {
+            font-size: 10px;
+            display: inline-block;
+            vertical-align: top;
+          }
+        }
+      }
+      .tc-toggle{
+        .toggle-control:hover{
+          background-color: $confirmedTypeLight;
+          color: $confirmedType;
+        }
+      }
+      .td-toggle{
+        .toggle-control:hover{
+          background-color: $deceasedTypeLight;
+          color: $deceasedType;
+        }
+      }
+      .nc-toggle{
+        .toggle-control:hover{
+          background-color: $recoveredTypeLight;
+          color: $recoveredType;
+        }
+      }
+    }
+  }
+}

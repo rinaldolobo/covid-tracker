@@ -1,0 +1,426 @@
+@import "src/app/shared/colors";
+
+::ng-deep.dark-theme{
+  .card-parent{
+    background: $dmAlternateBg;
+    transition: background-color 0.5s;
+    .card-title{
+      color: $dmAlternateText;
+    }
+    .card-data{
+      color: $dmAlternateText;
+    }
+    .card-meta{
+      color: $dmAlternateText;
+    }
+  }
+  .active-card {
+    background-color: $dmAlternateBg;
+    transition: background-color 0.5s;
+  }
+  .country-wrapper{
+    background: $dmAlternateBg;
+    transition: background-color 0.5s;
+    color: $dmAlternateText;
+    input{
+      color: $dmAlternateText;
+    }
+  }
+  .country{
+    color:$dmAlternateText;
+    &:hover{
+      background: $dmDefaultBg;
+      transition: background-color 0.5s;
+    }
+  }
+  .active-country{
+    background: $dmDefaultBg;
+    transition: background-color 0.5s;
+  }
+}
+
+::ng-deep.light-theme{
+  .card-parent{
+    background: $lmAlternateBg;
+    transition: background-color 0.5s;
+    .card-title{
+      color: $lmAlternateText;
+    }
+    .card-data{
+      color: $lmAlternateText;
+    }
+    .card-meta{
+      color: $lmAlternateText;
+    }
+  }
+  .active-card {
+    background-color: $lmAlternateBg;
+    transition: background-color 0.5s;
+  }
+  .country-wrapper{
+    background: $lmAlternateBg;
+    transition: background-color 0.5s;
+    color: $lmAlternateText;
+    input{
+      color: $lmAlternateText;
+    }
+  }
+  .country{
+    color:$lmAlternateText;
+    &:hover{
+      background: $lmDefaultBg;
+      transition: background-color 0.5s;
+    }
+  }
+  .active-country{
+    background: $lmDefaultBg;
+    transition: background-color 0.5s;
+  }
+}
+
+.main-container{
+  .stats-wrapper {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 15px;
+    .cards-wrapper {
+      display: block;
+      width: 100%;
+      .card-parent {
+        display: inline-block;
+        margin: 0 15px 15px 0;
+        padding: 15px;
+        border-radius: 10px;
+        width: calc(33.33% - 15px);
+        transition: all 0.5s;
+        cursor: pointer;
+        .card-title {
+          font-size: 14px;
+        }
+        .card-data {
+          font-size: 20px;
+          font-weight: 800;
+          line-height: 27px;
+        }
+        .card-meta{
+          font-size: 12px;
+          font-weight: 800;
+          height: 20px;
+          margin: 5px 0 0;
+        }
+      }
+      .card-parent:last-child {
+        margin: 0 0 15px 0;
+        width: calc(33.33%);
+      }
+      .active-card.tc {
+        box-shadow: 0px 0px 12px $confirmedTypeLight;
+        background-color: $confirmedTypeLight;
+        .card-data, .card-title, .card-meta {
+          color: $confirmedType;
+        }
+      }
+      .active-card.td {
+        box-shadow: 0px 0px 12px $deceasedTypeLight;
+        background-color: $deceasedTypeLight;
+        .card-data, .card-title, .card-meta {
+          color: $deceasedType;
+        }
+      }
+      .active-card.nc {
+        box-shadow: 0px 0px 12px $recoveredTypeLight;
+        background-color: $recoveredTypeLight;
+        .card-data, .card-title, .card-meta {
+          color: $recoveredType;
+        }
+      }
+      .tc:hover {
+        box-shadow: 0px 0px 12px $confirmedTypeLight;
+        background-color: $confirmedTypeLight;
+        .card-data, .card-title, .card-meta {
+          color: $confirmedType;
+        }
+      }
+      .td:hover {
+        box-shadow: 0px 0px 12px $deceasedTypeLight;
+        background-color: $deceasedTypeLight;
+        .card-data, .card-title, .card-meta {
+          color: $deceasedType;
+        }
+      }
+      .nc:hover {
+        box-shadow: 0px 0px 12px $recoveredTypeLight;
+        background-color: $recoveredTypeLight;
+        .card-data, .card-title, .card-meta {
+          color: $recoveredType;
+        }
+      }
+    }
+    .chart-container {
+      width: 100%;
+      height: calc(100vh - 200px);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  }
+  .country-stats-parent {
+    display: inline-block;
+    width: 100%;
+    .country-wrapper {
+      display: inline-block;
+      width: 100%;
+      padding: 0;
+      border-radius: 10px;
+      .country-search{
+        input{
+          border: 0;
+          padding: 10px 15px 10px;
+          background: transparent;
+          margin-top: 10px;
+          outline:none!important;
+          width:100%
+        }
+      }
+      .list-header{
+        display: inline-block;
+        width: 100%;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 800;
+        .header-left {
+          display: inline-block;
+          width: 50%;
+          text-align: left;
+          padding: 15px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        .header-right {
+          display: inline-block;
+          width: 50%;
+          text-align: right;
+          padding: 15px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+      .country-list {
+        display: block;
+        height: calc(100vh - 200px);
+        overflow: auto;
+        .country {
+          display: block;
+          padding: 10px 15px;
+          cursor: pointer;
+          font-size: 14px;
+          &:hover {
+            box-shadow: 0px 0px 12px rgb(0 0 0 / 15%);
+          }
+          .c-name {
+            display: inline-block;
+            width: 70%;
+            text-align: left;
+          }
+          .c-cases {
+            display: inline-block;
+            width: 30%;
+            text-align: right;
+          }
+        }
+        .active-country{
+          box-shadow: 0px 0px 12px rgb(0 0 0 / 15%);
+        }
+      }
+    }
+  }
+  .country-stats{
+    display: inline-block;
+    width:100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-container{
+    .stats-wrapper {
+      display: inline-block;
+      width:50%;
+      height: 100%;
+      margin-bottom: 0;
+      .cards-wrapper {
+        display: block;
+        width: 100%;
+        .card-parent {
+          display: inline-block;
+          margin: 0 15px 15px 0;
+          padding: 15px;
+          border-radius: 10px;
+          min-width: calc(33.33% - 15px);
+          transition: all 0.5s;
+          cursor: pointer;
+          .card-title {
+            font-size: 14px;
+          }
+          .card-data {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 27px;
+          }
+          .card-meta{
+            font-size: 12px;
+            font-weight: 800;
+            height: 20px;
+            margin: 5px 0 0;
+          }
+        }
+        .card-parent:last-child {
+          margin: 0 0 15px 0;
+          min-width: calc(33.33%);
+        }
+        .active-card.tc {
+          box-shadow: 0px 0px 12px $confirmedTypeLight;
+          background-color: $confirmedTypeLight;
+          .card-data, .card-title {
+            color: $confirmedType;
+          }
+        }
+        .active-card.td {
+          box-shadow: 0px 0px 12px $deceasedTypeLight;
+          background-color: $deceasedTypeLight;
+          .card-data, .card-title {
+            color: $deceasedType;
+          }
+        }
+        .active-card.nc {
+          box-shadow: 0px 0px 12px $recoveredTypeLight;
+          background-color: $recoveredTypeLight;
+          .card-data, .card-title {
+            color: $recoveredType;
+          }
+        }
+        .tc:hover {
+          box-shadow: 0px 0px 12px $confirmedTypeLight;
+          background-color: $confirmedTypeLight;
+          .card-data, .card-title {
+            color: $confirmedType;
+          }
+        }
+        .td:hover {
+          box-shadow: 0px 0px 12px $deceasedTypeLight;
+          background-color: $deceasedTypeLight;
+          .card-data, .card-title {
+            color: $deceasedType;
+          }
+        }
+        .nc:hover {
+          box-shadow: 0px 0px 12px $recoveredTypeLight;
+          background-color: $recoveredTypeLight;
+          .card-data, .card-title {
+            color: $recoveredType;
+          }
+        }
+      }
+      .chart-container {
+        width: 100%;
+        height: calc(100% - 117px);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+    }
+    .pseudo{
+      display: inline-block;
+      width:50%;
+      height: calc(100%);
+      .country-stats-parent {
+        display: inline-block;
+        vertical-align: top;
+        float: left;
+        width: 40%;
+        height: 100%;
+        .country-wrapper {
+          display: inline-block;
+          vertical-align: top;
+          width: 100%;
+          padding: 0;
+          height: 100%;
+          margin-left: 15px;
+          border-radius: 10px;
+          .country-search{
+            input{
+              border: 0;
+              padding: 10px 15px 10px;
+              background: transparent;
+              margin-top: 10px;
+              outline:none!important;
+              width:100%
+            }
+          }
+          .list-header{
+            display: inline-block;
+            width: 100%;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 800;
+            .header-left {
+              display: inline-block;
+              width: 50%;
+              text-align: left;
+              padding: 15px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+            .header-right {
+              display: inline-block;
+              width: 50%;
+              text-align: right;
+              padding: 15px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          }
+          .country-list {
+            display: block;
+            height: calc(100% - 98px);
+            overflow: auto;
+            .country {
+              display: block;
+              padding: 10px 15px;
+              cursor: pointer;
+              font-size: 14px;
+              &:hover {
+                box-shadow: 0px 0px 12px rgb(0 0 0 / 15%);
+              }
+              .c-name {
+                display: inline-block;
+                width: 70%;
+                text-align: left;
+              }
+              .c-cases {
+                display: inline-block;
+                width: 30%;
+                text-align: right;
+              }
+            }
+            .active-country{
+              box-shadow: 0px 0px 12px rgb(0 0 0 / 15%);
+            }
+          }
+        }
+      }
+      .country-stats{
+        display: inline-block;
+        width:60%;
+        height: 100%;
+        padding-left: 30px;
+        vertical-align: top;
+        float: right;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

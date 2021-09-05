@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import "app/shared/colors";
+
+body,html {
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  font-family: 'Nunito', sans-serif;
+}
+
+.dark-theme{
+  background-color: $dmDefaultBg;
+  .main-container{
+    background-color: $dmDefaultBg;
+    transition: background-color 0.5s;
+  }
+}
+
+.light-theme{
+  background-color: $lmDefaultBg;
+  .main-container{
+    background-color: $lmDefaultBg;
+    transition: background-color 0.5s;
+  }
+}
+
+*{
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent!important;
+}
+
+.main-container{
+  width: 100%;
+  display: block;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .main-container{
+    width: 100%;
+    height: calc(100% - 81px);
+    display: block;
+    padding: 15px;
+  }
+}
+

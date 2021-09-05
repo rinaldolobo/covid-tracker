@@ -1,0 +1,24 @@
+@import "src/app/shared/colors";
+
+::ng-deep.dark-theme{
+	#chartdiv {
+	  width: 100%;
+	  height: 100%;
+	  background-color: $dmMapBg;
+    [role='button'] g{
+      fill:$dmDefaultBg!important;
+      stroke:$dmDefaultBg!important;
+      g{
+        stroke:$dmAlternateText!important;
+      }
+    }
+	}
+}
+
+::ng-deep.light-theme{
+	#chartdiv {
+	  width: 100%;
+	  height: 100%;
+	  background-color: $lmMapBg;
+	}
+}

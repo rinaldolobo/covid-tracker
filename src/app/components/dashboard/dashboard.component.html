@@ -1,0 +1,77 @@
+<app-header (updateTheme)="updateTheme($event)"></app-header>
+<div class="main-container" *ngIf="summaryData">
+  <div class="stats-wrapper">
+    <div class="cards-wrapper" *ngIf="summaryData">
+      <div class="card-parent" [ngClass]="series==='tc'?'active-card tc':'tc'" (click)="series='tc';sortData()">
+        <div class="card-title">
+          Confirmed
+        </div>
+        <div class="card-meta">
+          {{summaryData['Global']['NewConfirmed']?'+'+api.formatNumber(summaryData['Global']['NewConfirmed'],isMobile):''}}
+        </div>
+        <div class="card-data">
+          {{api.formatNumber(summaryData['Global']['TotalConfirmed'],isMobile)}}
+        </div>
+      </div>
+      <div class="card-parent" [ngClass]="series==='td'?'active-card td':'td'" (click)="series='td';sortData()">
+        <div class="card-title">
+          Deceased
+        </div>
+        <div class="card-meta">
+          {{summaryData['Global']['NewDeaths']?'+'+api.formatNumber(summaryData['Global']['NewDeaths'],isMobile):''}}
+        </div>
+        <div class="card-data">
+          {{api.formatNumber(summaryData['Global']['TotalDeaths'],isMobile)}}
+        </div>
+      </div>
+      <div class="card-parent" [ngClass]="series==='nc'?'active-card nc':'nc'" (click)="series='nc';sortData()">
+        <div class="card-title">
+          Recovered
+        </div>
+        <div class="card-meta">
+          {{summaryData['Global']['NewRecovered']?'+'+api.formatNumber(summaryData['Global']['NewRecovered'],isMobile):''}}
+        </div>
+        <div class="card-data">
+          {{api.formatNumber(summaryData['Global']['TotalRecovered'],isMobile)}}
+        </div>
+      </div>
+    </div>
+    <div class="chart-container">
+      <app-world-view [theme]="theme" [hoveredItem]="hoveredItem?hoveredItem['CountryCode']:null" [activeItem]="activeItem?activeItem['CountryCode']:null" [series]="series" [fullSet]="summaryData?summaryData['Countries']:null"></app-world-view>
+    </div>
+  </div>
+  <div class="pseudo">
+    <div class="country-stats" *ngIf="activeItem">
+      <app-country-view [theme]="theme" [country]="activeItem" [activeSeries]="series"></app-country-view>
+    </div>
+    <div class="country-stats-parent">
+    <div class="country-wrapper" *ngIf="summaryData">
+      <div class="country-search">
+        <input type="text" placeholder="Search" [(ngModel)]="searchQuery">
+      </div>
+      <div class="list-header">
+        <div class="header-left">
+          Country
+        </div>
+        <div class="header-right">
+          {{series==='tc'?'Confirmed':series==='td'?'Deceased':'Recovered'}}
+        </div>
+      </div>
+      <div class="country-list">
+        <ng-scrollbar #scrollable>
+          <ng-container *ngFor="let country of summaryData['Countries']">
+            <div class="country" [id]="country['Slug']" [ngClass]="country['Slug']===activeItem['Slug']?'active-country':''" (click)="updateCountryStats(country)" *ngIf="searchQuery.trim()===''?true:country['Country'].toLowerCase().indexOf(searchQuery.trim().toLowerCase())!==-1" (mouseout)="activeItem['Slug']===country['Slug']?'':hoveredItem=null" (mouseover)="activeItem['Slug']===country['Slug']?'':hoveredItem=country">
+              <div class="c-name" [style.color]="country['Slug']===activeItem['Slug']?series==='tc'?colors.confirmedType:series==='td'?colors.deceasedType:colors.recoveredType:''">
+                {{country['Country']}}
+              </div>
+              <div class="c-cases" [style.color]="country['Slug']===activeItem['Slug']?series==='tc'?colors.confirmedType:series==='td'?colors.deceasedType:colors.recoveredType:''">
+                {{api.formatNumber(series==='tc'?country['TotalConfirmed']:series==='td'?country['TotalDeaths']:country['TotalRecovered'],true)}}
+              </div>
+            </div>
+          </ng-container>
+        </ng-scrollbar>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
